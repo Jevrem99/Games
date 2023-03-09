@@ -5,10 +5,13 @@ public class Logic {
 
     private Graphics graphics;
     private Player currentPlayer;
+    private Player winner;
+    private Field[][] fields;
 
     public Logic() {
         graphics = new Graphics();
         currentPlayer = Player.X;
+        fields = graphics.getFields();
         setFieldActions();
         setResetButtonAction();
     }
@@ -23,6 +26,7 @@ public class Logic {
                     public void actionPerformed(ActionEvent e) {
                         Field fieldPressed = (Field)e.getSource();
                         displayPlayer(fieldPressed);
+                        checkForWinner();
                     }
                 });
             }
@@ -61,6 +65,12 @@ public class Logic {
     {
         graphics.resetFields();
     }
+
+    private void checkForWinner()
+    {
+
+    }
+
 
     private void setResetButtonAction()
     {

@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Field extends JButton {
 
@@ -28,4 +29,5 @@ public class Field extends JButton {
     }
 
     public void reset(){playerMark = null; this.setText(null);}
+    public void setWinColor(){this.setBackground(Color.GREEN);}
 }
