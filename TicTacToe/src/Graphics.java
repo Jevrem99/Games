@@ -3,26 +3,29 @@ import java.awt.*;
 
 public class Graphics extends JFrame {
 
-    private int windowWidth = 500;
-    private int windowHight = 500;
-    private JPanel mainPanel;
-    private JPanel rightSidePanel;
-    private Field fields[][] = new Field[3][3];
-    private JButton resetButton;
+    private final int windowWidth = Settings.windowWidth;
+    private final int windowHeight = Settings.windowHeight;
+    private final JPanel mainPanel;
+    private final JPanel rightSidePanel;
+    private final Field[][] fields = new Field[3][3];
+    private final JButton resetButton;
 
 
 
     public Graphics(){
         mainPanel = new JPanel();
-        mainPanel.setPreferredSize(new Dimension(windowWidth,windowHight));
+        mainPanel.setPreferredSize(new Dimension(windowWidth,windowHeight));
         mainPanel.setLayout(new GridLayout(3,3));
         setFields(mainPanel);
         rightSidePanel = new JPanel();
-        rightSidePanel.setPreferredSize(new Dimension(windowWidth/3,windowHight));
+        rightSidePanel.setPreferredSize(new Dimension(windowWidth/3,windowHeight));
         resetButton = new JButton("Reset game");
         rightSidePanel.add(resetButton);
+        this.setResizable(false);
+        Image icon = Toolkit.getDefaultToolkit().getImage("images/TicTacToeIcon.png");
+        this.setIconImage(icon);
         this.setTitle("TicTacToe");
-        this.setSize(windowWidth,windowHight);
+        this.setSize(windowWidth,windowHeight);
         this.setLayout(new FlowLayout());
         this.add(mainPanel);
         this.add(rightSidePanel);
